@@ -24,6 +24,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Vector3 d_direction;
 
+    //アニメーション
+    [SerializeField]
+    private Animator _anim;
+
+    //プレイヤーのモデルの回転
+    [SerializeField]
+    private Transform _modelRot;
+
+    private Vector3 _lastDirection;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,15 +57,30 @@ public class Player : MonoBehaviour
         //正規化
         direction.Normalize();
 
+        _anim.SetFloat("Speed", direction.magnitude);
+
         //デバッグ用に
         d_direction = direction;
 
+        //XZ平面上の進行方向をきめる
+        Vector3 directionXZ = new Vector3(direction.x, 0, direction.y);
+
+        //現在のモデルの向く方向をきめる
+        Vector3 currentModelDirection = Vector3.Lerp(_lastDirection, directionXZ,Time.deltaTime * 5.0f);
+
+        //モデルの回転
+        _modelRot.localRotation = Quaternion.LookRotation(currentModelDirection);
+
+        _lastDirection = currentModelDirection;
+
         //入力方向とスピードから速度取得
-        Vector3 velocity = new Vector3(direction.x, 0, direction.y) * _speed * Time.deltaTime;
+        Vector3 velocity = directionXZ * _speed * Time.deltaTime;
 
         transform.position += velocity;
 
         _canBack = true;
+
+        
     }
 
     public void SetSpeed(float speed)
