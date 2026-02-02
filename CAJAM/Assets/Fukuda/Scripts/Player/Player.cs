@@ -63,27 +63,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        ////入力から進行方向を取得
-        //Vector2 direction = _playerInput["Move"].ReadValue<Vector2>();
-        //direction = new Vector2(direction.x, direction.y);
-        ////もし後ろに下がったらダメならマイナスへの移動をなくす
-        //if (!_canBack)
-        //{
-        //    direction.y = Mathf.Clamp(direction.y, 0.0f, 1.0f);
-        //}
-        ////正規化
-        //direction.Normalize();
-
-        ////_anim.SetFloat("Speed", direction.magnitude);
-
-        ////デバッグ用に
-        //d_direction = direction;
-
+        //現在の状態の更新
         _currentState.StateUpdate();
 
         _canBack = true;
-
+        
+        AnimatorStateInfo info = _anim.GetCurrentAnimatorStateInfo(0);
+        // "Run" アニメーションが終了したか
+        if (_anim.GetInteger("PlayerState") == 3 && info.IsName("Armature|idle"))
+        {
+            ChangeState(PlayerStateID.Idle);
+        }
     }
 
     public void SetSpeed(float speed)
@@ -132,6 +122,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public Animator GetAnimator()
+    {
+        return _anim;
+    }
+
     public Vector2 GetInputMove()
     {
         //入力から進行方向を取得
@@ -142,6 +137,15 @@ public class Player : MonoBehaviour
     public bool GetCanBack()
     {
         return _canBack;
+    }
+
+    public Vector3 GetLastDirection()
+    {
+        return new Vector3(_lastDirection.x,_lastDirection.y,_lastDirection.z);
+    }
+    public void SetLastDirection(Vector3 lastDirection)
+    {
+        _lastDirection = lastDirection;
     }
 
     public void SetState(PlayerState playerState, Player obj)

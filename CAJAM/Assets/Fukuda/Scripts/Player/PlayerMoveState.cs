@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMoveState : PlayerState
 {
@@ -42,11 +43,17 @@ public class PlayerMoveState : PlayerState
 
         _lastDirection = currentModelDirection;
 
+        GetPlayer().SetLastDirection(_lastDirection);
+
         //入力方向とスピードから速度取得
         Vector3 velocity = directionXZ * GetPlayer().GetSpeed() * Time.deltaTime;
 
         GetPlayer().PlayerMove(velocity);
 
+        if (Keyboard.current.spaceKey.isPressed)
+        {
+            GetPlayer().ChangeState(Player.PlayerStateID.Chage);
+        }
 
     }
 }

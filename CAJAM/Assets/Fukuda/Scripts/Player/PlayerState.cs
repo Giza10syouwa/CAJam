@@ -22,11 +22,11 @@ public class PlayerState : MonoBehaviour
     }
 
 
-    public void Initialize(Player player)
+    public virtual void Initialize(Player player)
     {
         _pPlayer = player;
     }
 
     public Player GetPlayer() { return _pPlayer; }
-
+    public void SetPlayer(Player player) { _pPlayer = player; }
 }
