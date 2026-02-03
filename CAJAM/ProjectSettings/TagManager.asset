@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BackWall
   - Attack
+  - Clear
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BossMoveState : MonoBehaviour
+public class BossMoveState : BossState
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,5 +12,10 @@ public class BossMoveState : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public override void StateUpdate()
+    {
+        GetBoss().transform.position += GetBoss().transform.forward * Time.deltaTime;
     }
 }

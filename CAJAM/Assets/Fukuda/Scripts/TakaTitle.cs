@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-public class BossIdleState : BossState
+public class TakaTitle : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -11,10 +13,9 @@ public class BossIdleState : BossState
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public override void StateUpdate()
-    {
+        if(Keyboard.current.spaceKey.isPressed)
+        {
+            SceneManager.LoadScene("Taka");
+        }
     }
 }

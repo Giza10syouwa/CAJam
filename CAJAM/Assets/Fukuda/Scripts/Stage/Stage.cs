@@ -37,6 +37,6 @@ public class Stage : MonoBehaviour
             _time += Time.deltaTime * _speed;
         }
 
-        _joshi.SetRatio(_time / _maxRatio);
+        //_joshi.SetRatio(_time / _maxRatio);
     }
 }
