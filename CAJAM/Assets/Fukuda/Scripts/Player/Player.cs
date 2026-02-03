@@ -55,6 +55,9 @@ public class Player : MonoBehaviour
     private GameObject _attackColl;
     private PlayerAttack _playerAttack;
 
+    //吹っ飛ばす方向
+    private Vector3 _smashDirection;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,15 +83,6 @@ public class Player : MonoBehaviour
         {
             ChangeState(PlayerStateID.Idle);
         }
-    }
-
-    public void SetSpeed(float speed)
-    { 
-        _speed = speed;
-    }
-    public float GetSpeed()
-    {
-        return _speed;
     }
 
     public void ChangeState(PlayerStateID id)
@@ -118,11 +112,25 @@ public class Player : MonoBehaviour
 
     }
 
+    //ゲッターセッター================================================-
+
+    //スピード
+    public void SetSpeed(float speed)
+    { 
+        _speed = speed;
+    }
+    public float GetSpeed()
+    {
+        return _speed;
+    }
+
+    //アタックコライダー
     public GameObject GetAttackColl()
     {
         return _attackColl;
     }
 
+    //パワー
     public int GetPower()
     {
         return _playerAttack.GetPower();
@@ -133,20 +141,13 @@ public class Player : MonoBehaviour
         _playerAttack.SetPower(power);
     }
 
-    public void OnCollisionStay(Collision collision)
-    {
-        //後ろの壁とあたっている間は後ろへの移動を禁止
-        if(collision.gameObject.CompareTag("BackWall"))
-        {
-            _canBack = false;
-        }
-    }
-
+    //アニメーター
     public Animator GetAnimator()
     {
         return _anim;
     }
 
+    //入力方向
     public Vector2 GetInputMove()
     {
         //入力から進行方向を取得
@@ -154,20 +155,23 @@ public class Player : MonoBehaviour
         return new Vector2(direction.x, direction.y);
     }
 
+    //うしろに移動できるか
     public bool GetCanBack()
     {
         return _canBack;
     }
 
+    //最後に向いていた方向
     public Vector3 GetLastDirection()
     {
-        return new Vector3(_lastDirection.x,_lastDirection.y,_lastDirection.z);
+        return new Vector3(_lastDirection.x, _lastDirection.y, _lastDirection.z);
     }
     public void SetLastDirection(Vector3 lastDirection)
     {
         _lastDirection = lastDirection;
     }
 
+    //状態
     public void SetState(PlayerState playerState, Player obj)
     {
         if (_currentState != null)
@@ -178,9 +182,30 @@ public class Player : MonoBehaviour
         _currentState.Initialize(obj);
     }
 
+    //モデルの回転
     public void SetModelRotation(Quaternion rot)
     {
         _modelRot.localRotation = rot;
+    }
+
+
+    //吹っ飛ばす方向
+    public void SetSmashDirection(Vector3 smashDirection)
+    {
+        _smashDirection = smashDirection;
+        //攻撃当たり判定オブジェクトにも
+        _playerAttack.SetSmashDirection(_smashDirection);
+    }
+
+    //=======================================================================----
+
+    public void OnCollisionStay(Collision collision)
+    {
+        //後ろの壁とあたっている間は後ろへの移動を禁止
+        if(collision.gameObject.CompareTag("BackWall"))
+        {
+            _canBack = false;
+        }
     }
 
    

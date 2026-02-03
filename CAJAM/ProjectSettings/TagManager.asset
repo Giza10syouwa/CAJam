@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - BackWall
+  - Attack
   layers:
   - Default
   - TransparentFX
