@@ -7,6 +7,13 @@ public class PlayerAttackState : PlayerState
     {
         
     }
+    public override void Initialize(Player player)
+    {
+        SetPlayer(player);
+        //プレイヤーの攻撃を有効
+        GetPlayer().GetAttackColl().SetActive(true);
+    }
+
 
     // Update is called once per frame
     public override void StateUpdate()
@@ -15,7 +22,9 @@ public class PlayerAttackState : PlayerState
         // "Run" アニメーションが終了したか
         if (info.IsName("Armature|swingattack") && info.normalizedTime >= 1.0f)
         {
-            Debug.Log("a");
+            //プレイヤーの攻撃を無効
+            GetPlayer().GetAttackColl().SetActive(false);
+
             GetPlayer().ChangeState(Player.PlayerStateID.Idle);
         }
     }
