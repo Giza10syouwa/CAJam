@@ -1,7 +1,9 @@
+using System;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UIElements;
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public enum PlayerStateID
@@ -31,6 +33,13 @@ public class Player : MonoBehaviour
 
     //後ろに下がれるか
     private bool _canBack;
+    //後ろに下がれるか
+    private bool _canFront;
+    //後ろに下がれるか
+    private bool _canRight;
+    //後ろに下がれるか
+    private bool _canLeft;
+
 
     //デバッグ用
     [SerializeField]
@@ -58,6 +67,15 @@ public class Player : MonoBehaviour
     //吹っ飛ばす方向
     private Vector3 _smashDirection;
 
+    [SerializeField]
+    private Sprite[] _arrowImages;
+    [SerializeField]
+    private Sprite[] _powerImages;
+    [SerializeField]
+    private GameObject _arrowImageObject;
+    private UnityEngine.UI.Image _arrowImage;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -66,7 +84,8 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _playerAttack = _attackColl.GetComponent<PlayerAttack>();
         ChangeState(PlayerStateID.Idle);
-
+        _arrowImage = _arrowImageObject.GetComponent<UnityEngine.UI.Image>();
+        SetArrowActive(false);
     }
 
     // Update is called once per frame
@@ -76,6 +95,9 @@ public class Player : MonoBehaviour
         _currentState.StateUpdate();
 
         _canBack = true;
+        _canFront = true;
+        _canLeft = true;
+        _canRight = true;
         
         AnimatorStateInfo info = _anim.GetCurrentAnimatorStateInfo(0);
         // "Run" アニメーションが終了したか
@@ -160,6 +182,19 @@ public class Player : MonoBehaviour
     {
         return _canBack;
     }
+    public bool GetCanFront()
+    {
+        return _canFront;
+    }
+    public bool GetCanLeft()
+    {
+        return _canLeft;
+    }
+    public bool GetCanRight()
+    {
+        return _canRight;
+    }
+
 
     //最後に向いていた方向
     public Vector3 GetLastDirection()
@@ -197,6 +232,24 @@ public class Player : MonoBehaviour
         _playerAttack.SetSmashDirection(_smashDirection);
     }
 
+
+    //矢印
+    public void SetArrowActive(bool active)
+    {
+        _arrowImage.gameObject.SetActive(active);
+    }
+
+    public void SetArrowImage(int num)
+    {
+        num = Math.Clamp(num, 0, _arrowImages.Length - 1);
+        _arrowImage.sprite = _arrowImages[num];
+    }
+
+    public int GetArrowImagesNum()
+    {
+        return _arrowImages.Length;
+    }
+
     //=======================================================================----
 
     public void OnCollisionStay(Collision collision)
@@ -206,12 +259,27 @@ public class Player : MonoBehaviour
         {
             _canBack = false;
         }
+        else if (collision.gameObject.CompareTag("FrontWall"))
+        {
+            _canFront = false;
+        }
+
+        if (collision.gameObject.CompareTag("RightWall"))
+        {
+            _canRight = false;
+        }
+        else if (collision.gameObject.CompareTag("LeftWall"))
+        {
+            _canLeft = false;
+        }
+
     }
 
-   
+
     public void PlayerMove(Vector3 velocity)
     {
-        transform.position += velocity;
+        _rb.MovePosition(_rb.position + velocity);
+        
     }
 
 }

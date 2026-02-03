@@ -12,6 +12,8 @@ public class PlayerAttackState : PlayerState
         SetPlayer(player);
         //プレイヤーの攻撃を有効
         GetPlayer().GetAttackColl().SetActive(true);
+        GetPlayer().SetArrowImage(GetPlayer().GetArrowImagesNum() - 1);
+
     }
 
 
@@ -24,6 +26,9 @@ public class PlayerAttackState : PlayerState
         {
             //プレイヤーの攻撃を無効
             GetPlayer().GetAttackColl().SetActive(false);
+
+            //矢印無効か
+            GetPlayer().SetArrowActive(false);
 
             GetPlayer().ChangeState(Player.PlayerStateID.Idle);
         }

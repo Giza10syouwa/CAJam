@@ -31,11 +31,15 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private Stage _stage;
 
+    //リジッドボディ
+    private Rigidbody _rb;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ChangeState(BossStateID.Move);
         _speed = INITIAL_SPEED;
+        _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -106,5 +110,10 @@ public class Boss : MonoBehaviour
     public float GetSpeed()
     {
         return _speed;
+    }
+
+    public void Move(Vector3 velocity)
+    {
+        _rb.MovePosition(_rb.position + velocity);
     }
 }

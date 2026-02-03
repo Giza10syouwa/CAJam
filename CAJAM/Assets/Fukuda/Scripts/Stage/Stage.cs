@@ -13,9 +13,6 @@ public class Stage : MonoBehaviour
 
     private float _speed;
 
-    //ƒQ[ƒ€‚ÌƒJƒƒ‰
-    [SerializeField]
-    private MovingToTarget _joshi;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

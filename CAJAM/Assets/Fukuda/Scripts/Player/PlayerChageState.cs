@@ -7,6 +7,8 @@ public class PlayerChageState : PlayerState
 
     private float _chagePower;
 
+    private float _time;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +21,9 @@ public class PlayerChageState : PlayerState
         _chagePower = 0.0f;
         _lastDirection = GetPlayer().GetLastDirection();
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
+        _time = 0.0f;
+        GetPlayer().SetArrowActive(true);
+
     }
 
     public override void StateUpdate()
@@ -50,8 +55,13 @@ public class PlayerChageState : PlayerState
         //パワーを上昇
         _chagePower += Time.deltaTime;
 
+
         //プレイヤーに設定
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
+
+        _time += Time.deltaTime * 3.0f;
+        GetPlayer().SetArrowImage((int)_time % GetPlayer().GetArrowImagesNum());
+
 
         //スペースキーが押されていなかった時
         if (!Keyboard.current.spaceKey.isPressed)

@@ -8,6 +8,9 @@ TagManager:
   - Attack
   - Clear
   - Boss
+  - FrontWall
+  - RightWall
+  - LeftWall
   layers:
   - Default
   - TransparentFX
