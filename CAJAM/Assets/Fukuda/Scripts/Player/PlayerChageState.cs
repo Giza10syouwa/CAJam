@@ -18,6 +18,7 @@ public class PlayerChageState : PlayerState
         SetPlayer(player);
         _chagePower = 0.0f;
         _lastDirection = GetPlayer().GetLastDirection();
+        GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
     }
 
     public override void StateUpdate()
@@ -48,7 +49,7 @@ public class PlayerChageState : PlayerState
 
         _chagePower += Time.deltaTime;
 
-
+        GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
 
         if (!Keyboard.current.spaceKey.isPressed)
         {

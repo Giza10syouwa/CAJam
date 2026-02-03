@@ -50,6 +50,10 @@ public class Player : MonoBehaviour
 
     private PlayerState _currentState;
 
+    //Attackコライダー
+    [SerializeField]
+    private GameObject _attackColl;
+    private PlayerAttack _playerAttack;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,7 +61,9 @@ public class Player : MonoBehaviour
         _speed = INITIAL_SPEED;
         _playerInput = GetComponent<PlayerInput>().currentActionMap;
         _rb = GetComponent<Rigidbody>();
+        _playerAttack = _attackColl.GetComponent<PlayerAttack>();
         ChangeState(PlayerStateID.Idle);
+
     }
 
     // Update is called once per frame
@@ -112,6 +118,20 @@ public class Player : MonoBehaviour
 
     }
 
+    public GameObject GetAttackColl()
+    {
+        return _attackColl;
+    }
+
+    public int GetPower()
+    {
+        return _playerAttack.GetPower();
+    }
+
+    public void SetPower(int power)
+    {
+        _playerAttack.SetPower(power);
+    }
 
     public void OnCollisionStay(Collision collision)
     {
@@ -169,13 +189,4 @@ public class Player : MonoBehaviour
         transform.position += velocity;
     }
 
-    public void PlayerAttackChage(Vector3 direction)
-    {
-
-    }
-
-    public void PlayerAttack()
-    {
-
-    }
 }
