@@ -15,7 +15,8 @@ public class Smash : SmashObject
     public override void OnHPLessZero()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-
+        gameObject.layer = LayerMask.NameToLayer("SmashObject");
+        rb.constraints = RigidbodyConstraints.None;
         //êÅÇ¡îÚÇŒÇ∑
         rb.AddForce(GetSmashDirection() * (float)GetLastTakePower() * 5.0f, ForceMode.Impulse);
     }
