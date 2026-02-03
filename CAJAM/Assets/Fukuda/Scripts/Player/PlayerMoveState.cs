@@ -50,7 +50,7 @@ public class PlayerMoveState : PlayerState
 
         GetPlayer().PlayerMove(velocity);
 
-        if (Keyboard.current.spaceKey.isPressed)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             GetPlayer().ChangeState(Player.PlayerStateID.Chage);
         }

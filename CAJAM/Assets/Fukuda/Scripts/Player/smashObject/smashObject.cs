@@ -55,6 +55,11 @@ public class SmashObject : MonoBehaviour
         return _lastTakePower;
     }
 
+    public int GetHP()
+    {
+        return _hp;
+    }
+
     public virtual void OnTakeDamage(int damage)
     {
 

@@ -16,6 +16,6 @@ public class BossMoveState : BossState
 
     public override void StateUpdate()
     {
-        GetBoss().transform.position += GetBoss().transform.forward * Time.deltaTime;
+        GetBoss().transform.position += GetBoss().transform.forward * Time.deltaTime * GetBoss().GetSpeed();
     }
 }

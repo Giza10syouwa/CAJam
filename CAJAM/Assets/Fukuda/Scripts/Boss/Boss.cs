@@ -21,11 +21,21 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private Animator _anim;
 
+    //現在の速度
+    private float _speed;
+
+    [SerializeField]
+    private float INITIAL_SPEED;
+
+    //今所属しているステージ
+    [SerializeField]
+    private Stage _stage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ChangeState(BossStateID.Move);
+        _speed = INITIAL_SPEED;
     }
 
     // Update is called once per frame
@@ -33,7 +43,7 @@ public class Boss : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
-        int layerMask = ~LayerMask.GetMask("Player","SmashObject");
+        int layerMask = ~LayerMask.GetMask("Player","SmashObject","Clear");
         if (Physics.Raycast(ray, out hit, 2.0f,layerMask))
         {
             Debug.Log("目の前に何かある");
@@ -76,4 +86,25 @@ public class Boss : MonoBehaviour
         _currentState.Initialize(obj);
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Clear"))
+        {
+            _stage.GameClear();
+        }
+    }
+
+    public void SetSpeed(float speed)
+    {
+        _speed = speed;
+    }
+    public void AddSpeed(float speed)
+    {
+        _speed += speed;
+    }
+
+    public float GetSpeed()
+    {
+        return _speed;
+    }
 }

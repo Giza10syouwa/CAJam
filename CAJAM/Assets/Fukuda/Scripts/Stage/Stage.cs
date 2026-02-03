@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Stage : MonoBehaviour
 {
     //
@@ -32,11 +32,13 @@ public class Stage : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_time < _maxRatio)
-        {
-            _time += Time.deltaTime * _speed;
-        }
+        _time += Time.deltaTime * _speed;
 
         //_joshi.SetRatio(_time / _maxRatio);
+    }
+
+    public void GameClear()
+    {
+        SceneManager.LoadScene("TakaClearScene");
     }
 }

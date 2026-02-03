@@ -20,7 +20,7 @@ public class PlayerIdleState : PlayerState
             GetPlayer().ChangeState(Player.PlayerStateID.Move);
         }
 
-        if(Keyboard.current.spaceKey.isPressed)
+        if(Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             GetPlayer().ChangeState(Player.PlayerStateID.Chage);
         }
