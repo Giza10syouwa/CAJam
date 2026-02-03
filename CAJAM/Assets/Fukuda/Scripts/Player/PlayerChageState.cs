@@ -44,15 +44,22 @@ public class PlayerChageState : PlayerState
         //モデルの回転
         GetPlayer().SetModelRotation(Quaternion.LookRotation(currentModelDirection));
 
+        //向きを更新
         _lastDirection = currentModelDirection;
-
-
+        
+        //パワーを上昇
         _chagePower += Time.deltaTime;
 
+        //プレイヤーに設定
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
 
+        //スペースキーが押されていなかった時
         if (!Keyboard.current.spaceKey.isPressed)
         {
+            //吹っ飛ばす方向を指定
+            GetPlayer().SetSmashDirection(currentModelDirection);
+
+            //攻撃状態に遷移させる
             GetPlayer().ChangeState(Player.PlayerStateID.Attack);
         }
 

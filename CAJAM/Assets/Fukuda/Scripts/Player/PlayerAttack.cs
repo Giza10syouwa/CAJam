@@ -5,6 +5,8 @@ public class PlayerAttack : MonoBehaviour
     //çUåÇóÕ
     private int _power;
 
+    private Vector3 _smashDirection;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,4 +28,14 @@ public class PlayerAttack : MonoBehaviour
     {
         _power = power;
     }
+
+    public Vector3 GetSmashDirection()
+    {
+        return _smashDirection;
+    }
+    public void SetSmashDirection(Vector3 direction)
+    {
+        _smashDirection = direction;
+    }
+
 }
