@@ -75,6 +75,8 @@ public class Player : MonoBehaviour
     private GameObject _arrowImageObject;
     private UnityEngine.UI.Image _arrowImage;
 
+    //プレイヤーのゲージ
+    private PlayerGage _playerGage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -86,6 +88,12 @@ public class Player : MonoBehaviour
         ChangeState(PlayerStateID.Idle);
         _arrowImage = _arrowImageObject.GetComponent<UnityEngine.UI.Image>();
         SetArrowActive(false);
+        _playerGage = GetComponent<PlayerGage>();
+
+        _canBack = true;
+        _canFront = true;
+        _canLeft = true;
+        _canRight = true;
     }
 
     // Update is called once per frame
@@ -94,17 +102,18 @@ public class Player : MonoBehaviour
         //現在の状態の更新
         _currentState.StateUpdate();
 
-        _canBack = true;
-        _canFront = true;
-        _canLeft = true;
-        _canRight = true;
+        //_canBack = true;
+        //_canFront = true;
+        //_canLeft = true;
+        //_canRight = true;
         
         AnimatorStateInfo info = _anim.GetCurrentAnimatorStateInfo(0);
-        // "Run" アニメーションが終了したか
+        // 攻撃状態かつアニメーションが待機状態だったら強制的に待機状態にする
         if (_anim.GetInteger("PlayerState") == 3 && info.IsName("Armature|idle"))
         {
             ChangeState(PlayerStateID.Idle);
         }
+
     }
 
     public void ChangeState(PlayerStateID id)
@@ -250,6 +259,18 @@ public class Player : MonoBehaviour
         return _arrowImages.Length;
     }
 
+    //ゲージ
+    public PlayerGage GetGage()
+    {
+        return _playerGage;
+    }
+
+    //攻撃
+    public PlayerAttack GetPlayerAttack()
+    {
+        return _playerAttack;
+    }
+
     //=======================================================================----
 
     public void OnCollisionStay(Collision collision)
@@ -271,6 +292,28 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.CompareTag("LeftWall"))
         {
             _canLeft = false;
+        }
+
+    }
+    public void OnCollisionExit(Collision collision)
+    {
+        //後ろの壁とあたっている間は後ろへの移動を禁止
+        if (collision.gameObject.CompareTag("BackWall"))
+        {
+            _canBack = true;
+        }
+        if (collision.gameObject.CompareTag("FrontWall"))
+        {
+            _canFront = true;
+        }
+
+        if (collision.gameObject.CompareTag("RightWall"))
+        {
+            _canRight = true;
+        }
+        if (collision.gameObject.CompareTag("LeftWall"))
+        {
+            _canLeft = true;
         }
 
     }

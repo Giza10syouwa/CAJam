@@ -20,6 +20,9 @@ public class PlayerAttackState : PlayerState
     // Update is called once per frame
     public override void StateUpdate()
     {
+        GetPlayer().GetGage().SetPos(GetPlayer().transform.position + -GetPlayer().GetPlayerAttack().GetSmashDirection());
+
+
         AnimatorStateInfo info = GetPlayer().GetAnimator().GetCurrentAnimatorStateInfo(0);
         // "Run" アニメーションが終了したか
         if (info.IsName("Armature|swingattack") && info.normalizedTime >= 1.0f)
@@ -27,8 +30,10 @@ public class PlayerAttackState : PlayerState
             //プレイヤーの攻撃を無効
             GetPlayer().GetAttackColl().SetActive(false);
 
-            //矢印無効か
+            //矢印無効
             GetPlayer().SetArrowActive(false);
+            //ゲージ無効
+            GetPlayer().GetGage().SetGageActive(false);
 
             GetPlayer().ChangeState(Player.PlayerStateID.Idle);
         }

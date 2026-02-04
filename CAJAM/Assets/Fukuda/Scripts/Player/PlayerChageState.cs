@@ -12,7 +12,7 @@ public class PlayerChageState : PlayerState
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     public override void Initialize(Player player)
@@ -23,6 +23,7 @@ public class PlayerChageState : PlayerState
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
         _time = 0.0f;
         GetPlayer().SetArrowActive(true);
+        GetPlayer().GetGage().SetGageActive(true);
 
     }
 
@@ -34,7 +35,7 @@ public class PlayerChageState : PlayerState
 
         if (direction.magnitude <= 0.0f)
         {
-            direction = _lastDirection;
+            direction = new Vector2(_lastDirection.x,_lastDirection.z);
         }
 
         //³‹K‰»
@@ -48,6 +49,8 @@ public class PlayerChageState : PlayerState
 
         //ƒ‚ƒfƒ‹‚Ì‰ñ“]
         GetPlayer().SetModelRotation(Quaternion.LookRotation(currentModelDirection));
+
+        GetPlayer().GetGage().SetPos(GetPlayer().transform.position + -currentModelDirection);
 
         //Œü‚«‚ðXV
         _lastDirection = currentModelDirection;
