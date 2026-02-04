@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
         ChangeState(PlayerStateID.Idle);
         _arrowImage = _arrowImageObject.GetComponent<UnityEngine.UI.Image>();
         SetArrowActive(false);
-        _playerGage = GetComponent<PlayerGage>();
+        if(_playerGage = GetComponent<PlayerGage>())
         _playerGage.SetGageActive(false);
 
         _canBack = true;

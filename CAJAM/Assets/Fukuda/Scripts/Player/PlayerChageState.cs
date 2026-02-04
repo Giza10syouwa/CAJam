@@ -50,6 +50,7 @@ public class PlayerChageState : PlayerState
         //ƒ‚ƒfƒ‹‚Ì‰ñ“]
         GetPlayer().SetModelRotation(Quaternion.LookRotation(currentModelDirection));
 
+        if(GetPlayer().GetGage())
         GetPlayer().GetGage().SetPos(GetPlayer().transform.position + -currentModelDirection * 2.0f);
 
         //Œü‚«‚ğXV
