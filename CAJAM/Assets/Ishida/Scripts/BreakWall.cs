@@ -6,12 +6,14 @@ public class BreakWall : SmashObject
     public float amplitude = 0.0f;
 
     bool shakeFlag;
+    bool canShake;
     float shakeTimer; 
     Vector3 startPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
          shakeFlag = false;
+        canShake = true;
         startPos = transform.localPosition;
     }
 
@@ -21,45 +23,68 @@ public class BreakWall : SmashObject
     //UpdateïÅí Ç…
     public override void SmashObjectUpdate()
     {
-        if (shakeFlag)
+
+        if (canShake)
         {
-            shakeTimer += Time.deltaTime; 
-            if (shakeTimer < duration) 
-            { 
-                float x = Random.Range(-1f, 1f) * amplitude; 
-                float y = Random.Range(-1f, 1f) * amplitude;
-                transform.localPosition = startPos + new Vector3(x, y, 0);
+            if (shakeFlag)
+            {
+                shakeTimer += Time.deltaTime;
+                if (shakeTimer < duration)
+                {
+                    float x = Random.Range(-1f, 1f) * amplitude;
+                    float y = Random.Range(-1f, 1f) * amplitude;
+                    transform.localPosition = startPos + new Vector3(x, y, 0);
+                }
+                else
+                { // óhÇÍèIóπ
+                    shakeFlag = false;
+                    shakeTimer = 0f;
+                    transform.localPosition = startPos;
+                }
             }
-            else
-            { // óhÇÍèIóπ
-              shakeFlag = false;
-                shakeTimer = 0f;
-                transform.localPosition = startPos;
-            } 
+
         }
-            
+
     }
 
     //É_ÉÅÅ[ÉWéÛÇØÇΩÇ∆Ç´
     public override void OnTakeDamage(int damage)
     {
-        shakeFlag = true;
+
+        if (GetHP() <= 0 || GetHP() - damage <= 0)
+        {
+            canShake = false;
+            shakeFlag = false;
+        }
+        else
+        {
+            shakeFlag = true;
+        }
+
+            
     }
 
     //éÄÇÒÇæÇ∆Ç´
     public override void OnHPLessZero()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        gameObject.layer = LayerMask.NameToLayer("SmashObject");
+        rb.isKinematic = false;
         rb.constraints = RigidbodyConstraints.None;
+        //rb.isKinematic = false;
+        rb.WakeUp();
+        Debug.Log("SmashDir = " + GetSmashDirection());
+
+        Vector3 dir = GetSmashDirection(); 
 
 
         // âÒì]Ç≥ÇπÇÈ
-        //rb.AddTorque(Random.onUnitSphere * 50f, ForceMode.Impulse);      
-        
+        rb.AddTorque(Random.onUnitSphere * 25f , ForceMode.Impulse);
         //êÅÇ¡îÚÇŒÇ∑
+        rb.AddForce((dir/*+ new Vector3(0,0,5)*/) * 50.0f, ForceMode.Impulse);
+
+
         
-        rb.AddForce(GetSmashDirection() * 50.0f, ForceMode.Impulse);
+
     }
 
 
