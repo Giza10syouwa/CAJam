@@ -20,7 +20,8 @@ public class PlayerAttackState : PlayerState
     // Update is called once per frame
     public override void StateUpdate()
     {
-        GetPlayer().GetGage().SetPos(GetPlayer().transform.position + -GetPlayer().GetPlayerAttack().GetSmashDirection());
+        if (GetPlayer().GetGage())
+        GetPlayer().GetGage().SetPos(GetPlayer().transform.position + -GetPlayer().GetPlayerAttack().GetSmashDirection() * 2.0f);
 
 
         AnimatorStateInfo info = GetPlayer().GetAnimator().GetCurrentAnimatorStateInfo(0);
@@ -33,6 +34,7 @@ public class PlayerAttackState : PlayerState
             //ñÓàÛñ≥å¯
             GetPlayer().SetArrowActive(false);
             //ÉQÅ[ÉWñ≥å¯
+            if (GetPlayer().GetGage())
             GetPlayer().GetGage().SetGageActive(false);
 
             GetPlayer().ChangeState(Player.PlayerStateID.Idle);
