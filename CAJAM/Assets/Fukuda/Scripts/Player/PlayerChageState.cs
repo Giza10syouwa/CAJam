@@ -51,18 +51,24 @@ public class PlayerChageState : PlayerState
         //モデルの回転
         GetPlayer().SetModelRotation(Quaternion.LookRotation(currentModelDirection));
 
-        if(GetPlayer().GetGage())
-        GetPlayer().GetGage().SetPos(GetPlayer().transform.position + -currentModelDirection * 2.0f);
 
         //向きを更新
         _lastDirection = currentModelDirection;
         
         //パワーを上昇
-        _chagePower += Time.deltaTime;
-
-
+        _chagePower += Time.deltaTime * 2.5f;
         //プレイヤーに設定
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
+
+        PlayerGage playerGage = GetPlayer().GetGage();
+        //ゲージの位置設定
+        if (playerGage)
+        {
+            playerGage.SetPos(GetPlayer().transform.position + -currentModelDirection * 2.0f);
+            //ゲージにパワーを設定
+            playerGage.SetPower(GetPlayer().GetPower());
+        }
+
 
         _time += Time.deltaTime * 3.0f;
         GetPlayer().SetArrowImage((int)_time % GetPlayer().GetArrowImagesNum());

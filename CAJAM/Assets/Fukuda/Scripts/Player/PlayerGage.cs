@@ -12,9 +12,16 @@ public class PlayerGage : MonoBehaviour
     //表示位置等
     private RectTransform _rectTransform;
 
+    //有効か
     private bool _enabled;
 
+    //位置
     private Vector3 _position;
+
+    //ゲージのスプライトの配列
+    [SerializeField]
+    private Sprite[] _sprites;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,6 +55,12 @@ public class PlayerGage : MonoBehaviour
             _position.z = 1.0f;
         if(_position.z <= 0.0f)
             _position.z = -1.0f;
+    }
+
+    public void SetPower(int power)
+    {
+        power = Mathf.Clamp(power, 0, _sprites.Length - 1);
+        _image.sprite = _sprites[power];
     }
 
 }

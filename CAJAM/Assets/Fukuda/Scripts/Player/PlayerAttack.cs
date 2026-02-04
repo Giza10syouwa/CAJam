@@ -26,7 +26,8 @@ public class PlayerAttack : MonoBehaviour
 
     public void SetPower(int power)
     {
-        _power = power;
+        _power = Mathf.Clamp(power,0,5);
+        
     }
 
     public Vector3 GetSmashDirection()
