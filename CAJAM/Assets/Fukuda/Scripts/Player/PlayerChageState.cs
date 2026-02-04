@@ -7,10 +7,12 @@ public class PlayerChageState : PlayerState
 
     private float _chagePower;
 
+    private float _time;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     public override void Initialize(Player player)
@@ -19,6 +21,10 @@ public class PlayerChageState : PlayerState
         _chagePower = 0.0f;
         _lastDirection = GetPlayer().GetLastDirection();
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
+        _time = 0.0f;
+        GetPlayer().SetArrowActive(true);
+        GetPlayer().GetGage().SetGageActive(true);
+
     }
 
     public override void StateUpdate()
@@ -29,7 +35,7 @@ public class PlayerChageState : PlayerState
 
         if (direction.magnitude <= 0.0f)
         {
-            direction = _lastDirection;
+            direction = new Vector2(_lastDirection.x,_lastDirection.z);
         }
 
         //正規化
@@ -44,14 +50,21 @@ public class PlayerChageState : PlayerState
         //モデルの回転
         GetPlayer().SetModelRotation(Quaternion.LookRotation(currentModelDirection));
 
+        GetPlayer().GetGage().SetPos(GetPlayer().transform.position + -currentModelDirection);
+
         //向きを更新
         _lastDirection = currentModelDirection;
         
         //パワーを上昇
         _chagePower += Time.deltaTime;
 
+
         //プレイヤーに設定
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
+
+        _time += Time.deltaTime * 3.0f;
+        GetPlayer().SetArrowImage((int)_time % GetPlayer().GetArrowImagesNum());
+
 
         //スペースキーが押されていなかった時
         if (!Keyboard.current.spaceKey.isPressed)

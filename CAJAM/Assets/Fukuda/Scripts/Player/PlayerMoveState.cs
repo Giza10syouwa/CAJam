@@ -29,6 +29,21 @@ public class PlayerMoveState : PlayerState
         {
             direction.y = Mathf.Clamp(direction.y, 0.0f, 1.0f);
         }
+        else if(!GetPlayer().GetCanFront())
+        {
+            direction.y = Mathf.Clamp(direction.y, -1.0f, 0.0f);
+        }
+        if (!GetPlayer().GetCanRight())
+        {
+            direction.x = Mathf.Clamp(direction.x, -1.0f, 0.0f);
+        }
+        else if (!GetPlayer().GetCanLeft())
+        {
+            direction.x = Mathf.Clamp(direction.x, 0.0f, 1.0f);
+        }
+
+
+
         //ê≥ãKâª
         direction.Normalize();
 
