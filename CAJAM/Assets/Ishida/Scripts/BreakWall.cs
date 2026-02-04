@@ -82,7 +82,7 @@ public class BreakWall : SmashObject
         //êÅÇ¡îÚÇŒÇ∑
         rb.AddForce((dir/*+ new Vector3(0,0,5)*/) * 50.0f, ForceMode.Impulse);
 
-
+        Score.Instance.PlusScore(100);
         
 
     }
