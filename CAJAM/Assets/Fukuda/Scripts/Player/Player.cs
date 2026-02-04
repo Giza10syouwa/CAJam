@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
         _arrowImage = _arrowImageObject.GetComponent<UnityEngine.UI.Image>();
         SetArrowActive(false);
         _playerGage = GetComponent<PlayerGage>();
+        _playerGage.SetGageActive(false);
 
         _canBack = true;
         _canFront = true;
@@ -101,11 +102,6 @@ public class Player : MonoBehaviour
     {
         //現在の状態の更新
         _currentState.StateUpdate();
-
-        //_canBack = true;
-        //_canFront = true;
-        //_canLeft = true;
-        //_canRight = true;
         
         AnimatorStateInfo info = _anim.GetCurrentAnimatorStateInfo(0);
         // 攻撃状態かつアニメーションが待機状態だったら強制的に待機状態にする
