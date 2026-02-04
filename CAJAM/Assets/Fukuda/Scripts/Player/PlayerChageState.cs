@@ -23,8 +23,13 @@ public class PlayerChageState : PlayerState
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
         _time = 0.0f;
         GetPlayer().SetArrowActive(true);
-        if (GetPlayer().GetGage())
-            GetPlayer().GetGage().SetGageActive(true);
+        PlayerGage playerGage = GetPlayer().GetGage();
+        //ÉQÅ[ÉWÇÃà íuê›íË
+        if (playerGage)
+        {
+            playerGage.SetPos(GetPlayer().transform.position - GetPlayer().GetPlayerAttack().GetSmashDirection() * 2.0f);
+            playerGage.SetGageActive(true);
+        }
 
     }
 
