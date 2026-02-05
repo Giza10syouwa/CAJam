@@ -72,7 +72,7 @@ public class BreakWall : SmashObject
         rb.constraints = RigidbodyConstraints.None;
         //rb.isKinematic = false;
         rb.WakeUp();
-        Debug.Log("SmashDir = " + GetSmashDirection());
+        
 
         Vector3 dir = GetSmashDirection(); 
 
@@ -82,7 +82,7 @@ public class BreakWall : SmashObject
         //êÅÇ¡îÚÇŒÇ∑
         rb.AddForce((dir/*+ new Vector3(0,0,5)*/) * 50.0f, ForceMode.Impulse);
 
-        Score.Instance.PlusScore(100);
+        Score.Instance.AddScore(100,"ï«ÇîjâÛ");
         
 
     }

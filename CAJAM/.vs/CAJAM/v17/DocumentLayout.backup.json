@@ -3,15 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|c:\\users\\it242025\\documents\\cajam\\cajam\\assets\\ishida\\scripts\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\assets\\ishida\\scripts\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\ishida\\scripts\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|c:\\users\\it242025\\documents\\cajam\\cajam\\assets\\ishida\\scripts\\thief.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\ishida\\scripts\\thief.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|c:\\users\\it242025\\documents\\cajam\\cajam\\assets\\ishida\\scripts\\officialpapers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\ishida\\scripts\\officialpapers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\assets\\ishida\\scripts\\breakwall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\ishida\\scripts\\breakwall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|c:\\users\\it242025\\documents\\cajam\\cajam\\assets\\ishida\\scripts\\dynamite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\assets\\ishida\\scripts\\dynamite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\ishida\\scripts\\dynamite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -26,8 +34,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Thief.cs",
+              "DocumentMoniker": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\Thief.cs",
+              "RelativeDocumentMoniker": "Assets\\Ishida\\Scripts\\Thief.cs",
+              "ToolTip": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\Thief.cs",
+              "RelativeToolTip": "Assets\\Ishida\\Scripts\\Thief.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAswBQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T05:40:29.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OfficialPapers.cs",
+              "DocumentMoniker": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\OfficialPapers.cs",
+              "RelativeDocumentMoniker": "Assets\\Ishida\\Scripts\\OfficialPapers.cs",
+              "ToolTip": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\OfficialPapers.cs",
+              "RelativeToolTip": "Assets\\Ishida\\Scripts\\OfficialPapers.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAACoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T01:04:46.532Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -36,14 +70,14 @@
               "RelativeDocumentMoniker": "Assets\\Ishida\\Scripts\\Score.cs",
               "ToolTip": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\Score.cs",
               "RelativeToolTip": "Assets\\Ishida\\Scripts\\Score.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAwC8AAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAIwCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T06:51:02.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ExplodedObject.cs",
               "DocumentMoniker": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\ExplodedObject.cs",
               "RelativeDocumentMoniker": "Assets\\Ishida\\Scripts\\ExplodedObject.cs",
@@ -55,26 +89,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Dynamite.cs",
               "DocumentMoniker": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\Dynamite.cs",
               "RelativeDocumentMoniker": "Assets\\Ishida\\Scripts\\Dynamite.cs",
               "ToolTip": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\Dynamite.cs",
               "RelativeToolTip": "Assets\\Ishida\\Scripts\\Dynamite.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAADwvxQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAQwDQAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T05:24:59.837Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T05:24:59.837Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "BreakWall.cs",
               "DocumentMoniker": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\BreakWall.cs",
               "RelativeDocumentMoniker": "Assets\\Ishida\\Scripts\\BreakWall.cs",
               "ToolTip": "C:\\Users\\it242025\\Documents\\CAJam\\CAJAM\\Assets\\Ishida\\Scripts\\BreakWall.cs",
               "RelativeToolTip": "Assets\\Ishida\\Scripts\\BreakWall.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAUwFQAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-03T05:09:58.606Z",
               "EditorCaption": ""

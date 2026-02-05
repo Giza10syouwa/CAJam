@@ -1,13 +1,18 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Score : MonoBehaviour
 {
     public static Score Instance { get; private set; }
 
-    public int _score { get;private set; }
+    [SerializeField] private List<int> _scoreNumbers = new List<int>();
+    [SerializeField] private List<string> _scoreNames = new List<string>();
+
     public event Action<int> OnScoreChanged;
     int _time = 0;
+    int count = 0;
 
     private void Awake() 
     {
@@ -20,31 +25,32 @@ public class Score : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlusScore(int score)
+    public void AddScore(int score,string name)
     {
-        _score += score;
-        Debug.Log($"Score: {_score}");
-        OnScoreChanged?.Invoke(_score);
+        _scoreNumbers.Add(score);
+        _scoreNames.Add(name);
+        Debug.Log("âΩÇÇµÇΩÅF" + _scoreNames[count]);
+        Debug.Log("éÊìæì_êîÅF" + _scoreNumbers[count]);
+        int total = 0; 
+        foreach (var s in _scoreNumbers) 
+            total += s;
+        count++;
+        OnScoreChanged?.Invoke(total);
     }
 
-    public void MinusScore(int score)
-    {
-        _score -= score;
-        Debug.Log($"Score: {_score}");
-        OnScoreChanged?.Invoke(_score);
-    }
 
-    public void ResetScore()
-    { 
-        _score = 0;
-        Debug.Log($"Score: {_score}");
-        OnScoreChanged?.Invoke(_score); 
+    public List<int> GetScoreNumbers()
+    {
+        return _scoreNumbers;
+    }
+    public List<string> GetScoreNames()
+    {
+        return _scoreNames;
     }
 
     public void SetTime(int time)
     {
         _time = time;
-        _score += _time * 2;
-        Debug.Log($"Score: {_score}");
+        _scoreNumbers.Add(_time * 2);
     }
 }
