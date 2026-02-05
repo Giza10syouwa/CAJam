@@ -7,6 +7,12 @@ public class PlayerAttack : MonoBehaviour
 
     private Vector3 _smashDirection;
 
+    [SerializeField]
+    private ParticleSystem _effect;
+
+    [SerializeField]
+    private AudioClip[] _clips;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +23,14 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Hit()
+    {
+        if(_effect)
+        {
+            _effect.Play();
+        }
     }
 
     public int GetPower()
@@ -38,5 +52,21 @@ public class PlayerAttack : MonoBehaviour
     {
         _smashDirection = direction;
     }
+
+    public void AddEffectScale(float scale)
+    {
+        if(_effect)
+        {
+            _effect.gameObject.transform.localScale += new Vector3(scale, scale, scale);
+        }
+    }
+    public void SetEffectScale(float scale)
+    {
+        if (_effect)
+        {
+            _effect.gameObject.transform.localScale = new Vector3(scale, scale, scale);
+        }
+    }
+
 
 }

@@ -9,6 +9,13 @@ public class BreakWall : SmashObject
     bool canShake;
     float shakeTimer; 
     Vector3 startPos;
+
+    [SerializeField]
+    private string _scoreStr;
+    [SerializeField]
+    private int _score;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,7 +58,7 @@ public class BreakWall : SmashObject
     public override void OnTakeDamage(int damage)
     {
 
-        if (GetHP() <= 0 || GetHP() - damage <= 0)
+        if (GetHP() <= 0 )
         {
             canShake = false;
             shakeFlag = false;
@@ -82,7 +89,7 @@ public class BreakWall : SmashObject
         //‚Á”ò‚Î‚·
         rb.AddForce((dir/*+ new Vector3(0,0,5)*/) * 50.0f, ForceMode.Impulse);
 
-        Score.Instance.AddScore(100,"•Ç‚ð”j‰ó");
+        Score.Instance.AddScore(_score,_scoreStr);
         
 
     }
