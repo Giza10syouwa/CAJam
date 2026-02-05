@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using static Player;
 
@@ -38,6 +39,19 @@ public class Boss : MonoBehaviour
     //鞄オブジェクト
     [SerializeField]
     private GameObject _bagObject;
+
+    //スーツのレンダラー
+    [SerializeField]
+    private SkinnedMeshRenderer _suitRenderer;
+
+    //ズボンのレンダラー
+    [SerializeField]
+    private SkinnedMeshRenderer _pantsRenderer;
+
+
+    //金マテリアル
+    [SerializeField]
+    private Material _gold;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -90,7 +104,7 @@ public class Boss : MonoBehaviour
     {
         if (_currentState != null)
         {
-            GameObject.Destroy(_currentState);
+            _currentState = null;
         }
         _currentState = bossState;
         _currentState.Initialize(obj);
@@ -123,8 +137,22 @@ public class Boss : MonoBehaviour
         _rb.MovePosition(_rb.position + velocity);
     }
 
+    //バッグを有効
     public void BagActive()
     {
         _bagObject.SetActive(true);
     }
+
+    //スーツのマテリアルを金ぴかに
+    public void GoldSuit()
+    {
+        _suitRenderer.SetMaterials(new List<Material>{ _gold });
+        Debug.Log("gold");
+    }
+    public void GoldPants()
+    {
+        _pantsRenderer.SetMaterials(new List<Material> { _gold });
+        Debug.Log("gold");
+    }
+
 }

@@ -1,24 +1,13 @@
 using UnityEngine;
 
-public class ExplodedObject : MonoBehaviour
+public class ExplodedObject : SmashObject
 {
     private Rigidbody _rb;
     private float _timer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void SmashObjectUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    private void FixedUpdate()
-    {
-        if (_rb)
+        if (GetHP() <= 0)
         {
             _timer += Time.deltaTime;
             if (_timer >= 4.0f)
@@ -27,6 +16,16 @@ public class ExplodedObject : MonoBehaviour
             }
         }
 
+    }
+
+    public override void OnHPLessZero()
+    {
+        Explod(GetSmashDirection() * GetLastTakePower() * 30.0f);
+    }
+
+    public override void OnTakeDamage(int damage)
+    {
+       
     }
 
     public void Explod(Vector3 burstVelocity)

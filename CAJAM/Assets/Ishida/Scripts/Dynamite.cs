@@ -13,6 +13,11 @@ public class Dynamite : SmashObject
 
     private float _timer;
 
+    [SerializeField]
+    private PlayerAttack _attack;
+
+    private Vector3 _targetPos;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,7 +31,7 @@ public class Dynamite : SmashObject
 
         if (_rb)
         {
-            gameObject.layer = LayerMask.NameToLayer("SmashObject");
+            //gameObject.layer = LayerMask.NameToLayer("SmashObject");
             _rb.isKinematic = false;
             _power = (float)GetLastTakePower() * 30.0f;
             _vec = GetSmashDirection();
@@ -50,11 +55,12 @@ public class Dynamite : SmashObject
 
     private void OnCollisionEnter(Collision collision)
     {
-        ExplodedObject expObj = collision.gameObject.GetComponent<ExplodedObject>();
+        SmashObject expObj = collision.gameObject.GetComponent<SmashObject>();
         //Ç‡ÇµîöîjëŒè€ÇæÇ¡ÇΩÇÁ
         if (expObj)
         {
-            expObj.Explod((expObj.transform.position - transform.position) * _power + new Vector3(0.0f,_power / 10.0f,0.0f));
+            _targetPos = expObj.transform.position;
+            //expObj.Explod((expObj.transform.position - transform.position) * _power + new Vector3(0.0f,_power / 10.0f,0.0f));
             Explod();
 
         }
@@ -63,8 +69,15 @@ public class Dynamite : SmashObject
 
     private void Explod()
     {
+        if (_attack)
+        {
+            _attack.gameObject.SetActive(true);
+            _attack.gameObject.transform.parent = null;
+            _attack.gameObject.GetComponent<DestroyByTime>().TimerStart();
+            _attack.SetSmashDirection((_targetPos - transform.position) + new Vector3(0.0f, _power / 10.0f, 0.0f));
+            _attack.SetPower(2 + (int)_power);
+        }
         GameObject.Destroy(gameObject);
-
     }
 
 

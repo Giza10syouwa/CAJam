@@ -22,7 +22,7 @@ public class Bag : SmashObject
     public override void OnHPLessZero()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        //gameObject.layer = LayerMask.NameToLayer("SmashObject");
+        gameObject.layer = LayerMask.NameToLayer("SmashObject");
         rb.isKinematic = false;
         //êÅÇ¡îÚÇŒÇ∑
         rb.AddForce(GetSmashDirection() * (float)GetLastTakePower() * 4.0f, ForceMode.Impulse);

@@ -120,6 +120,7 @@ public class Player : MonoBehaviour
         _anim.SetInteger("PlayerState", (int)_currentStateID);
 
 
+
         if (id == PlayerStateID.Idle)
         {
             SetState(new PlayerIdleState(), this);
@@ -216,7 +217,7 @@ public class Player : MonoBehaviour
     {
         if (_currentState != null)
         {
-            GameObject.Destroy(_currentState);
+            _currentState = null;
         }
         _currentState = playerState;
         _currentState.Initialize(obj);

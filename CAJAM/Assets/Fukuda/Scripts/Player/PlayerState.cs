@@ -1,21 +1,9 @@
 using UnityEngine;
 
-public class PlayerState : MonoBehaviour
+public class PlayerState 
 {
     //プレイヤーのポインタ
     private Player _pPlayer;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public virtual void StateUpdate()
     {

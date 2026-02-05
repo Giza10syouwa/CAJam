@@ -17,10 +17,11 @@ public class Smash : SmashObject
     public override void OnHPLessZero()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        //gameObject.layer = LayerMask.NameToLayer("SmashObject");
+        gameObject.layer = LayerMask.NameToLayer("SmashObject");
         rb.constraints = RigidbodyConstraints.None;
+        rb.isKinematic = false;
         //êÅÇ¡îÚÇŒÇ∑
-        rb.AddForce(GetSmashDirection() * (float)GetLastTakePower() * 40.0f, ForceMode.Impulse);
+        rb.AddForce(GetSmashDirection() * (float)GetLastTakePower() * 20.0f, ForceMode.Impulse);
 
     }
     public override void SmashObjectUpdate()

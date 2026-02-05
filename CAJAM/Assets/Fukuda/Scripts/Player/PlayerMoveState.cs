@@ -6,12 +6,6 @@ public class PlayerMoveState : PlayerState
 
     private Vector3 _lastDirection;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     public override void StateUpdate()
     {
         //“ü—Í‚©‚çis•ûŒü‚ğæ“¾

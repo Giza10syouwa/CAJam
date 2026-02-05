@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
     public override void Initialize(Player player)
     {
         SetPlayer(player);
@@ -25,6 +20,12 @@ public class PlayerAttackState : PlayerState
 
 
         AnimatorStateInfo info = GetPlayer().GetAnimator().GetCurrentAnimatorStateInfo(0);
+        if (info.IsName("Armature|swingattack") && info.normalizedTime >= 0.4303)
+        {
+            //プレイヤーの攻撃を無効
+            GetPlayer().GetAttackColl().SetActive(false);
+
+        }
         // "Run" アニメーションが終了したか
         if (info.IsName("Armature|swingattack") && info.normalizedTime >= 1.0f)
         {

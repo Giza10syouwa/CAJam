@@ -51,7 +51,7 @@ public class BreakWall : SmashObject
     public override void OnTakeDamage(int damage)
     {
 
-        if (GetHP() <= 0 || GetHP() - damage <= 0)
+        if (GetHP() <= 0)
         {
             canShake = false;
             shakeFlag = false;
@@ -70,17 +70,17 @@ public class BreakWall : SmashObject
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.isKinematic = false;
         rb.constraints = RigidbodyConstraints.None;
-        //rb.isKinematic = false;
+        rb.isKinematic = false;
         rb.WakeUp();
         Debug.Log("SmashDir = " + GetSmashDirection());
-
+        gameObject.layer = LayerMask.NameToLayer("SmashObject");
         Vector3 dir = GetSmashDirection(); 
 
 
         // âÒì]Ç≥ÇπÇÈ
         rb.AddTorque(Random.onUnitSphere * 25f , ForceMode.Impulse);
         //êÅÇ¡îÚÇŒÇ∑
-        rb.AddForce((dir/*+ new Vector3(0,0,5)*/) * 50.0f, ForceMode.Impulse);
+        rb.AddForce((dir/*+ new Vector3(0,0,5)*/) * 30.0f, ForceMode.Impulse);
 
 
         
