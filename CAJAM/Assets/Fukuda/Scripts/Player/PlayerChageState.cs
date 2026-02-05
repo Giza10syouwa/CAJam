@@ -12,7 +12,7 @@ public class PlayerChageState : PlayerState
     public override void Initialize(Player player)
     {
         SetPlayer(player);
-        _chagePower = 0.0f;
+        _chagePower = 1.0f;
         _lastDirection = GetPlayer().GetLastDirection();
         GetPlayer().SetPower((int)Mathf.Floor(_chagePower));
         _time = 0.0f;

@@ -76,6 +76,8 @@ public class Dynamite : SmashObject
             _attack.gameObject.GetComponent<DestroyByTime>().TimerStart();
             _attack.SetSmashDirection((_targetPos - transform.position) + new Vector3(0.0f, _power / 10.0f, 0.0f));
             _attack.SetPower(2 + (int)_power);
+            _attack.gameObject.transform.localScale += new Vector3(_power / 30.0f, _power / 30.0f, _power / 30.0f) * 1.5f;
+            _attack.SetEffectScale(_attack.gameObject.transform.localScale.x / 10.0f);
         }
         GameObject.Destroy(gameObject);
     }

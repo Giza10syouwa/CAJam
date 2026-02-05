@@ -90,6 +90,8 @@ public class Player : MonoBehaviour
         SetArrowActive(false);
         if(_playerGage = GetComponent<PlayerGage>())
         _playerGage.SetGageActive(false);
+        //ƒvƒŒƒCƒ„[‚ÌUŒ‚‚ğ–³Œø
+        GetAttackColl().SetActive(false);
 
         _canBack = true;
         _canFront = true;

@@ -30,6 +30,7 @@ public class SmashObject : MonoBehaviour
         if(other.gameObject.CompareTag("Attack"))
         {
             PlayerAttack playerAttack = other.GetComponent<PlayerAttack>();
+            playerAttack.Hit();
             //UŒ‚—Í•ª‘Ì—Í‚ğŒ¸‚ç‚·
             int power = playerAttack.GetPower();
             _hp -= power;
