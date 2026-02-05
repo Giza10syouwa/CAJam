@@ -36,6 +36,7 @@ public class Stage : MonoBehaviour
 
     public void GameClear()
     {
+        Score.Instance.AddScore(-(int)(_time * 100.0f), "‚¢‚¿‚Í‚â‚­ãi‚ğ‘—‚è“Í‚¯‚È‚¯‚ê‚Î‚È‚ç‚È‚¢");
         SceneManager.LoadScene("TakaClearScene");
     }
 }

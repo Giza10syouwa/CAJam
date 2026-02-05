@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -56,7 +57,10 @@ public class Score : MonoBehaviour
         return _scoreNames;
     }
 
-
+    public int GetScore()
+    {
+        return _scoreNumbers.Sum();
+    }
 
     public void SetTime(int time)
     {

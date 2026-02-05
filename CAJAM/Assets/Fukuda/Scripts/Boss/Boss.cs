@@ -60,6 +60,7 @@ public class Boss : MonoBehaviour
         _speed = INITIAL_SPEED;
         _rb = GetComponent<Rigidbody>();
         _bagObject.SetActive(false);
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -82,6 +83,9 @@ public class Boss : MonoBehaviour
 
         _currentState.StateUpdate();
     }
+
+    
+
 
     public void ChangeState(BossStateID id)
     {
@@ -114,6 +118,8 @@ public class Boss : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Clear"))
         {
+            transform.position = Vector3.zero;
+            _speed = 0.0f;
             _stage.GameClear();
         }
     }
