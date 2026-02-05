@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\assets\\fukuda\\scripts\\player\\playerchagestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\fukuda\\scripts\\player\\playerchagestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\assets\\fukuda\\scripts\\player\\playerattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\fukuda\\scripts\\player\\playerattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|c:\\users\\it242224\\documents\\cajam\\cajam\\assets\\fukuda\\scripts\\bag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\fukuda\\scripts\\bag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\assets\\fukuda\\scripts\\player\\smashobject\\smashobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\fukuda\\scripts\\player\\smashobject\\smashobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\assets\\fukuda\\scripts\\player\\playerattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\fukuda\\scripts\\player\\playerattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\assets\\fukuda\\scripts\\player\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,10 +35,6 @@
       "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\fukuda\\scripts\\player\\playergage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\assets\\fukuda\\scripts\\player\\playerchagestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\fukuda\\scripts\\player\\playerchagestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\assets\\fukuda\\scripts\\player\\playermovestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7F3E4A2-6618-4D19-6E5E-34EC3F566B7B}|Assembly-CSharp.csproj|solutionrelative:assets\\fukuda\\scripts\\player\\playermovestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -50,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Bag.cs",
               "DocumentMoniker": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Bag.cs",
               "RelativeDocumentMoniker": "Assets\\Fukuda\\Scripts\\Bag.cs",
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PlayerAttack.cs",
               "DocumentMoniker": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Player\\PlayerAttack.cs",
               "RelativeDocumentMoniker": "Assets\\Fukuda\\Scripts\\Player\\PlayerAttack.cs",
@@ -75,25 +75,24 @@
               "RelativeToolTip": "Assets\\Fukuda\\Scripts\\Player\\PlayerAttack.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAQwBwAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T01:55:03.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T01:55:03.875Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PlayerAttackState.cs",
               "DocumentMoniker": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Player\\PlayerAttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Fukuda\\Scripts\\Player\\PlayerAttackState.cs",
               "ToolTip": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Player\\PlayerAttackState.cs",
               "RelativeToolTip": "Assets\\Fukuda\\Scripts\\Player\\PlayerAttackState.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAQwBcAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAIwBcAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T01:47:46.18Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "smashObject.cs",
               "DocumentMoniker": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Player\\smashObject\\smashObject.cs",
               "RelativeDocumentMoniker": "Assets\\Fukuda\\Scripts\\Player\\smashObject\\smashObject.cs",
@@ -101,12 +100,11 @@
               "RelativeToolTip": "Assets\\Fukuda\\Scripts\\Player\\smashObject\\smashObject.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAIwB8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T01:34:49.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T01:34:49.986Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "BossMoveState.cs",
               "DocumentMoniker": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Boss\\BossMoveState.cs",
               "RelativeDocumentMoniker": "Assets\\Fukuda\\Scripts\\Boss\\BossMoveState.cs",
@@ -114,8 +112,7 @@
               "RelativeToolTip": "Assets\\Fukuda\\Scripts\\Boss\\BossMoveState.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAuwBIAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T01:30:31.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T01:30:31.919Z"
             },
             {
               "$type": "Document",
@@ -139,25 +136,24 @@
               "RelativeToolTip": "Assets\\Fukuda\\Scripts\\Player\\PlayerMoveState.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAIwBsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T01:30:10.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T01:30:10.38Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "PlayerChageState.cs",
               "DocumentMoniker": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Player\\PlayerChageState.cs",
               "RelativeDocumentMoniker": "Assets\\Fukuda\\Scripts\\Player\\PlayerChageState.cs",
               "ToolTip": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Player\\PlayerChageState.cs",
               "RelativeToolTip": "Assets\\Fukuda\\Scripts\\Player\\PlayerChageState.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAQwD4AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAwB0AAAB5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T00:59:42.813Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Fukuda\\Scripts\\Player\\Player.cs",
@@ -165,12 +161,11 @@
               "RelativeToolTip": "Assets\\Fukuda\\Scripts\\Player\\Player.cs",
               "ViewState": "AgIAALQAAAAAAAAAAAAiwKcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T00:58:18.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T00:58:18.081Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PlayerGage.cs",
               "DocumentMoniker": "C:\\Users\\it242224\\Documents\\CAJAM\\CAJAM\\Assets\\Fukuda\\Scripts\\Player\\PlayerGage.cs",
               "RelativeDocumentMoniker": "Assets\\Fukuda\\Scripts\\Player\\PlayerGage.cs",
@@ -178,8 +173,7 @@
               "RelativeToolTip": "Assets\\Fukuda\\Scripts\\Player\\PlayerGage.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAIwD4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T00:49:07.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T00:49:07.675Z"
             }
           ]
         }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bag : MonoBehaviour
+public class Bag : SmashObject
 {
 
 
@@ -15,17 +15,32 @@ public class Bag : MonoBehaviour
     {
         
     }
+    public override void OnTakeDamage(int damage)
+    {
 
-    private void OnTriggerEnter(Collider collider)
+    }
+    public override void OnHPLessZero()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        gameObject.layer = LayerMask.NameToLayer("SmashObject");
-        if (collider.gameObject.CompareTag("Attack"))
+        //gameObject.layer = LayerMask.NameToLayer("SmashObject");
+        rb.isKinematic = false;
+        //吹っ飛ばす
+        rb.AddForce(GetSmashDirection() * (float)GetLastTakePower() * 4.0f, ForceMode.Impulse);
+
+    }
+    public override void SmashObjectUpdate()
+    {
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //もし上司とぶつかったらバッグを有効に
+        if (collision.gameObject.CompareTag("Boss"))
         {
-            PlayerAttack playerAttack = collider.GetComponent<PlayerAttack>();
-            rb.constraints = RigidbodyConstraints.None;
-            //吹っ飛ばす
-            rb.AddForce(playerAttack.GetSmashDirection() * 5.0f, ForceMode.Impulse);
+            collision.gameObject.GetComponent<Boss>().BagActive();
+            GameObject.Destroy(gameObject);
         }
+
     }
 }

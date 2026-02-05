@@ -34,12 +34,18 @@ public class Boss : MonoBehaviour
     //リジッドボディ
     private Rigidbody _rb;
 
+
+    //鞄オブジェクト
+    [SerializeField]
+    private GameObject _bagObject;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ChangeState(BossStateID.Move);
         _speed = INITIAL_SPEED;
         _rb = GetComponent<Rigidbody>();
+        _bagObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -115,5 +121,10 @@ public class Boss : MonoBehaviour
     public void Move(Vector3 velocity)
     {
         _rb.MovePosition(_rb.position + velocity);
+    }
+
+    public void BagActive()
+    {
+        _bagObject.SetActive(true);
     }
 }
