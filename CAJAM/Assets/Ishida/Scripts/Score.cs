@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Score : MonoBehaviour
 {
@@ -13,6 +14,13 @@ public class Score : MonoBehaviour
     public event Action<int> OnScoreChanged;
     int _time = 0;
     int count = 0;
+
+    void Start()
+    {
+        _scoreNumbers.Add(5000);
+        _scoreNames.Add("出社ありがとうスコア");
+        count++;
+    }
 
     private void Awake() 
     {
@@ -47,6 +55,8 @@ public class Score : MonoBehaviour
     {
         return _scoreNames;
     }
+
+
 
     public void SetTime(int time)
     {
