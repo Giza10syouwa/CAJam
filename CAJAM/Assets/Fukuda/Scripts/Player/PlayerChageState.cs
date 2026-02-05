@@ -18,6 +18,8 @@ public class PlayerChageState : PlayerState
         _time = 0.0f;
         GetPlayer().SetArrowActive(true);
         PlayerGage playerGage = GetPlayer().GetGage();
+        //GetPlayer().GetAttackColl().SetActive(false);
+
         //ÉQÅ[ÉWÇÃà íuê›íË
         if (playerGage)
         {

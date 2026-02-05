@@ -51,7 +51,7 @@ public class OfficialPapers : SmashObject
         //‚à‚µãi‚Æ‚Ô‚Â‚©‚Á‚½‚çƒX[ƒc‚ğ‹à‚Ò‚©‚É
         if (boss)
         {
-            Score.Instance.AddScore(200,"ãi‚É‘—Ş‚ğ“n‚·");
+            ScoreUP();
             GameObject.Destroy(gameObject);
         }
 

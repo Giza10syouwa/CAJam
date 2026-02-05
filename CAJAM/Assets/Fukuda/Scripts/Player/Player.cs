@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         
         AnimatorStateInfo info = _anim.GetCurrentAnimatorStateInfo(0);
         // 攻撃状態かつアニメーションが待機状態だったら強制的に待機状態にする
-        if (_anim.GetInteger("PlayerState") == 3 && info.IsName("Armature|idle"))
+        if (_anim.GetInteger("PlayerState") == 3 && (info.IsName("Armature|idle") || info.IsName("Armature|run")))
         {
             ChangeState(PlayerStateID.Idle);
         }
@@ -217,8 +217,10 @@ public class Player : MonoBehaviour
     //状態
     public void SetState(PlayerState playerState, Player obj)
     {
+
         if (_currentState != null)
         {
+            _currentState.StateFinalize();
             _currentState = null;
         }
         _currentState = playerState;
@@ -244,6 +246,7 @@ public class Player : MonoBehaviour
     //矢印
     public void SetArrowActive(bool active)
     {
+        if(_arrowImage)
         _arrowImage.gameObject.SetActive(active);
     }
 

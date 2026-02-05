@@ -15,6 +15,11 @@ public class PlayerState
         _pPlayer = player;
     }
 
+    public virtual void StateFinalize()
+    {
+
+    }
+
     public Player GetPlayer() { return _pPlayer; }
     public void SetPlayer(Player player) { _pPlayer = player; }
 }

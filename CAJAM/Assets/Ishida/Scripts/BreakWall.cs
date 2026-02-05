@@ -10,10 +10,6 @@ public class BreakWall : SmashObject
     float shakeTimer; 
     Vector3 startPos;
 
-    [SerializeField]
-    private string _scoreStr;
-    [SerializeField]
-    private int _score;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -77,9 +73,10 @@ public class BreakWall : SmashObject
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.isKinematic = false;
         rb.constraints = RigidbodyConstraints.None;
-        //rb.isKinematic = false;
+        rb.isKinematic = false;
         rb.WakeUp();
-        
+        gameObject.layer = LayerMask.NameToLayer("SmashObject");
+
 
         Vector3 dir = GetSmashDirection(); 
 
@@ -89,7 +86,6 @@ public class BreakWall : SmashObject
         //êÅÇ¡îÚÇŒÇ∑
         rb.AddForce((dir/*+ new Vector3(0,0,5)*/) * 50.0f, ForceMode.Impulse);
 
-        Score.Instance.AddScore(_score,_scoreStr);
         
 
     }

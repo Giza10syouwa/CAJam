@@ -6,6 +6,7 @@ public class PlayerMoveState : PlayerState
 
     private Vector3 _lastDirection;
 
+
     public override void StateUpdate()
     {
         //“ü—Í‚©‚çis•ûŒü‚ğæ“¾

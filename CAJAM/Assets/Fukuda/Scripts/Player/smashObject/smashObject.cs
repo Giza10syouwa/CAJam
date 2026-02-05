@@ -12,6 +12,15 @@ public class SmashObject : MonoBehaviour
     //ç≈å„Ç…éÛÇØÇΩçUåÇóÕ
     private int _lastTakePower;
 
+    [SerializeField]
+    private string _scoreStr;
+    [SerializeField]
+    private int _score;
+    [SerializeField]
+    private bool _isScoreEnable;
+
+    private bool _isBreak = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,11 +44,17 @@ public class SmashObject : MonoBehaviour
             int power = playerAttack.GetPower();
             _hp -= power;
             OnTakeDamage(power);
-            if(_hp <= 0)
+            if(_hp <= 0 && !_isBreak)
             {
+                _isBreak = true;
                 _lastTakePower = power;
                 //ÉvÉåÉCÉÑÅ[ÇÃêÅÇ¡îÚÇŒÇµï˚å¸ÇéÊìæ
                 _smashDirection = playerAttack.GetSmashDirection();
+
+                if(_isScoreEnable)
+                Score.Instance.AddScore(_score, _scoreStr);
+
+
                 //âÛÇ≥ÇÍÇΩéûÇÃèàóùÇÇ∑ÇÈ
                 OnHPLessZero();
             }
@@ -61,6 +76,10 @@ public class SmashObject : MonoBehaviour
         return _hp;
     }
 
+    public void ScoreUP()
+    {
+        Score.Instance.AddScore(_score, _scoreStr);
+    }
     public virtual void OnTakeDamage(int damage)
     {
 

@@ -13,10 +13,15 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private AudioClip[] _clips;
 
+    private AudioSource _audioSource;
+
+    [SerializeField]
+    private GameObject _audioPrefab;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +34,21 @@ public class PlayerAttack : MonoBehaviour
     {
         if(_effect)
         {
+
+            AudioClipSetting audioObject = GameObject.Instantiate(_audioPrefab).GetComponent<AudioClipSetting>();
+            AudioSource src = audioObject.GetComponent<AudioSource>(); // å≥ÇÃ AudioSource ÇÃê›íËÇÉRÉsÅ[
+            src.volume = _audioSource.volume;
+            src.pitch = _audioSource.pitch;
+            src.spatialBlend = _audioSource.spatialBlend;
+            src.loop = _audioSource.loop;
+            src.playOnAwake = _audioSource.playOnAwake;
+            src.minDistance = _audioSource.minDistance;
+            src.maxDistance = _audioSource.maxDistance;
+            src.rolloffMode = _audioSource.rolloffMode;
+            //----------------------------------------
+            audioObject.SetAudioClip(_clips[0]);
+            audioObject.Play();
+            
             _effect.Play();
         }
     }

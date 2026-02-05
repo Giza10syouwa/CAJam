@@ -37,6 +37,8 @@ public class GoldPants : SmashObject
         //‚à‚µãi‚Æ‚Ô‚Â‚©‚Á‚½‚çƒX[ƒc‚ğ‹à‚Ò‚©‚É
         if (collision.gameObject.CompareTag("Boss"))
         {
+            ScoreUP();
+
             collision.gameObject.GetComponent<Boss>().GoldPants();
             GameObject.Destroy(gameObject);
         }

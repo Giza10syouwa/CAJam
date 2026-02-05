@@ -33,6 +33,11 @@ public class DestroyByTime : MonoBehaviour
         }
     }
 
+    public void SetDestroyTime(float time)
+    {
+        DESTROY_TIME = time;
+    }
+
     public void TimerStart()
     {
         _countF = true;

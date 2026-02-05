@@ -11,6 +11,19 @@ public class PlayerAttackState : PlayerState
 
     }
 
+    public override void StateFinalize()
+    {
+        //プレイヤーの攻撃を無効
+        GetPlayer().GetAttackColl().SetActive(false);
+
+        //矢印無効
+        GetPlayer().SetArrowActive(false);
+        //ゲージ無効
+        if (GetPlayer().GetGage())
+            GetPlayer().GetGage().SetGageActive(false);
+
+
+    }
 
     // Update is called once per frame
     public override void StateUpdate()
