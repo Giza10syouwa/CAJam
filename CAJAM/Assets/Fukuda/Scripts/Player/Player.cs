@@ -78,9 +78,12 @@ public class Player : MonoBehaviour
     //プレイヤーのゲージ
     private PlayerGage _playerGage;
 
+    private bool _cantPlay;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _cantPlay = true;
         _speed = INITIAL_SPEED;
         _playerInput = GetComponent<PlayerInput>().currentActionMap;
         _rb = GetComponent<Rigidbody>();
@@ -102,6 +105,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_cantPlay)
+        {
+            return;
+        }
         //現在の状態の更新
         _currentState.StateUpdate();
         
@@ -325,6 +332,11 @@ public class Player : MonoBehaviour
     {
         _rb.MovePosition(_rb.position + velocity);
         
+    }
+
+    public void CanPlay()
+    {
+        _cantPlay = false;
     }
 
 }

@@ -53,9 +53,12 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private Material _gold;
 
+    private bool _cantPlay;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _cantPlay = true;
         ChangeState(BossStateID.Move);
         _speed = INITIAL_SPEED;
         _rb = GetComponent<Rigidbody>();
@@ -66,6 +69,11 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_cantPlay)
+        {
+            return;
+        }
+
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
         int layerMask = ~LayerMask.GetMask("Player","SmashObject","Clear");
@@ -104,6 +112,12 @@ public class Boss : MonoBehaviour
         }
 
     }
+
+    public void SetZeroPos()
+    {
+        transform.position = Vector3.zero;
+    }
+
     public void SetState(BossState bossState, Boss obj)
     {
         if (_currentState != null)
@@ -118,7 +132,6 @@ public class Boss : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Clear"))
         {
-            transform.position = Vector3.zero;
             _speed = 0.0f;
             _stage.GameClear();
         }
@@ -159,6 +172,11 @@ public class Boss : MonoBehaviour
     {
         _pantsRenderer.SetMaterials(new List<Material> { _gold });
         Debug.Log("gold");
+    }
+
+    public void CanPlay()
+    {
+        _cantPlay = false;
     }
 
 }
